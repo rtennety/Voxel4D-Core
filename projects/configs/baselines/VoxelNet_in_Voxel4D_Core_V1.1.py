@@ -10,7 +10,7 @@ _base_ = [
 find_unused_parameters = True
 # whether training and test together with dataset generation
 only_generate_dataset = False
-# we only consider use_camera in Voxel4D Core in the current version
+# I only consider use_camera in Voxel4D Core in the current version
 input_modality = dict(
     use_lidar=False,
     use_camera=True,
@@ -23,7 +23,7 @@ occ_path = "./data/nuScenes-Occupancy"
 depth_gt_path = './data/depth_gt'
 train_ann_file = "./data/nuscenes/nuscenes_occ_infos_train.pkl"
 val_ann_file = "./data/nuscenes/nuscenes_occ_infos_val.pkl"
-cam4docc_dataset_path = "./data/Core/"
+voxel4d_core_dataset_path = "./data/Core/"
 nusc_root = './data/nuscenes/'
 # GMO class names
 class_names = ['vehicle', 'human']
@@ -31,7 +31,7 @@ use_separate_classes = False
 use_fine_occ = False
 
 # Forecasting-related params ******************************************
-# we use *time_receptive_field* past frames to forecast future *n_future_frames* frames
+# I use *time_receptive_field* past frames to forecast future *n_future_frames* frames
 # for 3D instance prediction, n_future_frames_plus > n_future_frames has to be set
 time_receptive_field = 3
 n_future_frames = 4
@@ -83,7 +83,7 @@ bda_aug_conf = dict(
 train_capacity = 23930 # default: use all sequences
 test_capacity = 5119 # default: use all sequences
 train_pipeline = [
-    dict(type='LoadInstanceWithFlow', cam4docc_dataset_path=cam4docc_dataset_path, grid_size=occ_size, use_flow=True, background=empty_idx, pc_range=point_cloud_range,
+    dict(type='LoadInstanceWithFlow', voxel4d_core_dataset_path=voxel4d_core_dataset_path, grid_size=occ_size, use_flow=True, background=empty_idx, pc_range=point_cloud_range,
                 use_separate_classes=use_separate_classes),
     dict(type='LoadMultiViewImageFromFiles_BEVDet', is_train=True, data_config=data_config,
                 sequential=False, aligned=True, trans_only=False, depth_gt_path=depth_gt_path, data_root=nusc_root,
@@ -94,7 +94,7 @@ train_pipeline = [
 ]
 
 test_pipeline = [
-    dict(type='LoadInstanceWithFlow', cam4docc_dataset_path=cam4docc_dataset_path, grid_size=occ_size, use_flow=True, background=empty_idx, pc_range=point_cloud_range,
+    dict(type='LoadInstanceWithFlow', voxel4d_core_dataset_path=voxel4d_core_dataset_path, grid_size=occ_size, use_flow=True, background=empty_idx, pc_range=point_cloud_range,
          use_separate_classes=use_separate_classes),
     dict(type='LoadMultiViewImageFromFiles_BEVDet', data_config=data_config, depth_gt_path=depth_gt_path, data_root=nusc_root,
          sequential=False, aligned=True, trans_only=False, mmlabnorm=True, img_norm_cfg=img_norm_cfg, test_mode=True),
@@ -107,8 +107,8 @@ train_config=dict(
         type=dataset_type,
         data_root=nusc_root,
         occ_root=occ_path,
-        idx_root=cam4docc_dataset_path,
-        ori_data_root=cam4docc_dataset_path,
+        idx_root=voxel4d_core_dataset_path,
+        ori_data_root=voxel4d_core_dataset_path,
         ann_file=train_ann_file,
         pipeline=train_pipeline,
         classes=class_names,
@@ -129,8 +129,8 @@ test_config=dict(
     type=dataset_type,
     occ_root=occ_path,
     data_root=nusc_root,
-    idx_root=cam4docc_dataset_path,
-    ori_data_root=cam4docc_dataset_path,
+    idx_root=voxel4d_core_dataset_path,
+    ori_data_root=voxel4d_core_dataset_path,
     ann_file=val_ann_file,
     pipeline=test_pipeline,
     classes=class_names,
@@ -144,7 +144,7 @@ test_config=dict(
     test_capacity=test_capacity,
     ) 
 
-# in our work we use 8 NVIDIA A100 GPUs
+# in my work I use 8 NVIDIA A100 GPUs
 data = dict(
     samples_per_gpu=1,
     workers_per_gpu=1,

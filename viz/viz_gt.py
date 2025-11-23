@@ -92,9 +92,9 @@ def main():
     show_time_change = True
 
     nuscocc_path = "../data/nuScenes-Occupancy/"
-    cam4docc_path = "../data/Core/GMO/segmentation/"
+    voxel4d_core_path = "../data/Core/GMO/segmentation/"
 
-    segmentation_files = os.listdir(cam4docc_path)
+    segmentation_files = os.listdir(voxel4d_core_path)
     segmentation_files.sort(key=lambda x: (x.split("_")[1]))
     index = 0
 
@@ -113,7 +113,7 @@ def main():
         gt_occ_semantic_refine[:, 2] = gt_occ_semantic[:, 0]
         gt_occ_semantic_refine[:, 3] = 1
 
-        gt_mo_semantic =  np.load(cam4docc_path+file_,allow_pickle=True)['arr_0']
+        gt_mo_semantic =  np.load(voxel4d_core_path+file_,allow_pickle=True)['arr_0']
 
         gt_mo_semantic_to_draw=np.zeros((0,4))
         for t in range(0,4):

@@ -11,19 +11,19 @@ import time
 
 @PIPELINES.register_module()
 class LoadInstanceWithFlow(object):
-    def __init__(self, cam4docc_dataset_path, grid_size=[512, 512, 40], pc_range=[-51.2, -51.2, -5.0, 51.2, 51.2, 3.0], background=0, 
+    def __init__(self, voxel4d_core_dataset_path, grid_size=[512, 512, 40], pc_range=[-51.2, -51.2, -5.0, 51.2, 51.2, 3.0], background=0, 
                     use_flow=True, use_separate_classes=False, use_lyft=False):
         '''
         Loading sequential occupancy labels and instance flows for training and testing
 
-        cam4docc_dataset_path: data path of Voxel4D Core dataset, including 'segmentation', 'instance', and 'flow'
+        voxel4d_core_dataset_path: data path of Voxel4D Core dataset, including 'segmentation', 'instance', and 'flow'
         grid_size: number of grids along H W L, default: [512, 512, 40]
         pc_range: predefined ranges along H W L, default: [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]
         background: background pixel value for segmentation/instance/flow maps, default: 0
         use_flow: whether use flow for training schemes, default: True
         '''
 
-        self.cam4docc_dataset_path = cam4docc_dataset_path
+        self.voxel4d_core_dataset_path = voxel4d_core_dataset_path
 
         self.pc_range = pc_range
         self.resolution = [(self.pc_range[3+i] - self.pc_range[i])/grid_size[i] for i in range(len(self.pc_range[:3]))]
@@ -277,19 +277,19 @@ class LoadInstanceWithFlow(object):
         if self.use_lyft:
             prefix = prefix + "_lyft"
 
-        seg_label_dir = os.path.join(self.cam4docc_dataset_path, prefix, "segmentation")
+        seg_label_dir = os.path.join(self.voxel4d_core_dataset_path, prefix, "segmentation")
         if not os.path.exists(seg_label_dir):
             os.mkdir(seg_label_dir)
         seg_label_path = os.path.join(seg_label_dir, \
             results['input_dict'][time_receptive_field-1]['scene_token']+"_"+results['input_dict'][time_receptive_field-1]['lidar_token'])
 
-        instance_label_dir = os.path.join(self.cam4docc_dataset_path, prefix, "instance")
+        instance_label_dir = os.path.join(self.voxel4d_core_dataset_path, prefix, "instance")
         if not os.path.exists(instance_label_dir):
             os.mkdir(instance_label_dir)
         instance_label_path = os.path.join(instance_label_dir, \
             results['input_dict'][time_receptive_field-1]['scene_token']+"_"+results['input_dict'][time_receptive_field-1]['lidar_token'])
 
-        flow_label_dir = os.path.join(self.cam4docc_dataset_path, prefix, "flow")
+        flow_label_dir = os.path.join(self.voxel4d_core_dataset_path, prefix, "flow")
         if not os.path.exists(flow_label_dir):
             os.mkdir(flow_label_dir)        
         flow_label_path = os.path.join(flow_label_dir, \

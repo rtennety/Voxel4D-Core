@@ -145,7 +145,7 @@ class FlowHead(nn.Module):
 
         loss_dict = {}
 
-        # igore 255 = ignore noise. we keep the loss bascward for the label=0 (free voxels)
+        # igore 255 = ignore noise. I keep the loss bascward for the label=0 (free voxels)
         loss_dict['loss_voxel_ce_{}'.format(tag)] = self.loss_voxel_ce_weight * CE_ssc_loss(fine_output, selected_gt, ignore_index=255)
         loss_dict['loss_voxel_sem_scal_{}'.format(tag)] = self.loss_voxel_sem_scal_weight * sem_scal_loss(fine_output, selected_gt, ignore_index=255)
         loss_dict['loss_voxel_geo_scal_{}'.format(tag)] = self.loss_voxel_geo_scal_weight * geo_scal_loss(fine_output, selected_gt, ignore_index=255, non_empty_idx=self.empty_idx)

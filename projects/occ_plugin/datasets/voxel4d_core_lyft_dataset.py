@@ -24,7 +24,7 @@ class Voxel4DCoreLyftDataset(Dataset):
                   train_capacity, test_capacity, test_mode=False, pipeline=None, **kwargs):
         
         '''
-        Voxel4DCoreLyftDataset contains sequential occupancy states as well as instance flow for training occupancy forecasting models. We unify the related operations in the LiDAR coordinate system following OpenOccupancy.
+        Voxel4DCoreLyftDataset contains sequential occupancy states as well as instance flow for training occupancy forecasting models. I unify the related operations in the LiDAR coordinate system following OpenOccupancy.
 
         occ_size: number of grids along H W L, default: [512, 512, 40]
         pc_range: predefined ranges along H W L, default: [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]

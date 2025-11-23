@@ -99,7 +99,7 @@ for i in trange(len(test_seqs)):
     lidar_token_present = test_seqs[i].split("_")[1][:-4]
 
     # transform past point clouds to the present frame
-    # point cloud prediction baseline is limited by sparsity of laser points, so we aggregate
+    # point cloud prediction baseline is limited by sparsity of laser points, so I aggregate
     # past point clouds to mitigate in this version
     # More reasonable versions will be released
     past_voxels = []

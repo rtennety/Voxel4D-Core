@@ -45,7 +45,7 @@ class VoxelNet(BEVDepth):
             save_path=None,
             **kwargs):
         '''
-        VoxelNet is our end-to-end baseline for 4D camera-only occupancy forecasting
+        VoxelNet is my end-to-end baseline for 4D camera-only occupancy forecasting
         
         there are two streams for the forecasting task with aggregated voxel features as inputs:
             1. occ_encoder_backbone -> occ_predictor -> occ_encoder_neck -> pts_bbox_head
@@ -507,7 +507,7 @@ class VoxelNet(BEVDepth):
             torch.cuda.synchronize()
             t0 = time.time()
         
-        # TODO: we will release the version with depth fine-tuning in the future
+        # TODO: I will release the version with depth fine-tuning in the future
         if not self.disable_loss_depth and depth is not None:
             depth_gt = img_inputs_seq[-2][:,0:self.time_receptive_field,...].contiguous()
             depth_gt = depth_gt.view(depth_gt.shape[0]*depth_gt.shape[1],*depth_gt.shape[2:])

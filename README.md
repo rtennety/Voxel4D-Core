@@ -1,8 +1,6 @@
 # Voxel4D Core
 
-The official code and data for the benchmark with baselines for our paper: [Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications](https://arxiv.org/abs/2311.17663)
-
-This work has been accepted by CVPR 2024 :tada:
+The official code and data for the benchmark with baselines for my paper: [Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications](https://arxiv.org/abs/2311.17663)
 
 **Author:** Rohan Tennety
 
@@ -11,21 +9,15 @@ This work has been accepted by CVPR 2024 :tada:
 
 
 ## Citation
-If you use Voxel4D Core in an academic work, please cite our paper:
+If you use Voxel4D Core in an academic work, please cite my paper:
 
 	@inproceedings{tennety2024cvpr,
 		author = {Rohan Tennety},
 		title = {{Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications}},
-		booktitle = {Proc.~of the IEEE/CVF Conf.~on Computer Vision and Pattern Recognition (CVPR)},
-		year = 2024
+		year = 2025
 	}
  
 ## Installation
-
-<details>
-	
-<summary>We follow the installation instructions from OpenOccupancy, which are also posted here
-</summary>
 
 * Create a conda virtual environment and activate it
 ```bash
@@ -72,19 +64,17 @@ export PYTHONPATH="."
 python setup.py develop
 ```
 
-</details>
-
 ## Data Structure
 
 ### nuScenes dataset
 * Please link your [nuScenes V1.0 full dataset](https://www.nuscenes.org/nuscenes#download) to the data folder. 
-* [nuScenes-Occupancy](https://drive.google.com/file/d/1vLL6bdqSC7WxtvQ6ODTw0pixAZCbPkpq/view?usp=sharing), [nuscenes_occ_infos_train.pkl](https://github.com/JeffWang987/OpenOccupancy/releases/tag/train_pkl), and [nuscenes_occ_infos_val.pkl](https://drive.google.com/file/d/1hs2P1tipydKRgq-VeuS8NtjjVCzAXVy8/view?usp=sharing) are also provided by the previous work. If you only want to reproduce the forecasting results with "inflated" form, nuScenes dataset and Voxel4D Core are all you need.
+* [nuScenes-Occupancy](https://drive.google.com/file/d/1vLL6bdqSC7WxtvQ6ODTw0pixAZCbPkpq/view?usp=sharing), [nuscenes_occ_infos_train.pkl](https://drive.google.com/file/d/1i6ktiV2951r5k9ABCLi2w2lIteRpoZ7c/view?usp=sharing), and [nuscenes_occ_infos_val.pkl](https://drive.google.com/file/d/1hs2P1tipydKRgq-VeuS8NtjjVCzAXVy8/view?usp=sharing) are also provided by the previous work. If you only want to reproduce the forecasting results with "inflated" form, nuScenes dataset and Voxel4D Core are all you need.
 
 ### Lyft dataset
 * Please link your [Lyft dataset](https://www.kaggle.com/c/3d-object-detection-for-autonomous-vehicles/data) to the data folder.
 * The required folders are listed below.
 
-Note that the folders under `Core` will be generated automatically once you first run our training or evaluation scripts.
+Note that the folders under `Core` will be generated automatically once you first run my training or evaluation scripts.
 
 ```bash
 Voxel4D Core
@@ -129,7 +119,7 @@ nusc_root = './data/nuscenes/'
 
 ## Training and Evaluation
 
-We directly integrate the Voxel4D Core dataset generation pipeline into the dataloader, so you can directly run training or evaluate scripts and just wait :smirk:
+I directly integrate the Voxel4D Core dataset generation pipeline into the dataloader, so you can directly run training or evaluate scripts and just wait :smirk:
 
 Optionally, you can set `only_generate_dataset=True` in the [config files](./projects/configs/baselines) to only generate the Voxel4D Core data without model training and inference.
 
@@ -205,7 +195,7 @@ python viz_pred.py
 ```
 <img src="./viz_pred.png" width="100%"/>
 
-There is still room for improvement. Camera-only 4D occupancy forecasting remains challenging, especially for predicting over longer time intervals with many moving objects. We envision this benchmark as a valuable evaluation tool, and our VoxelNet can serve as a foundational codebase for future research on 4D occupancy forecasting.
+There is still room for improvement. Camera-only 4D occupancy forecasting remains challenging, especially for predicting over longer time intervals with many moving objects. I envision this benchmark as a valuable evaluation tool, and my VoxelNet can serve as a foundational codebase for future research on 4D occupancy forecasting.
 
 
 
@@ -220,7 +210,7 @@ There is still room for improvement. Camera-only 4D occupancy forecasting remain
 
 ## Other Baselines
 
-We also provide the evaluation on the forecasting performance of [other baselines](./other_baselines) in Voxel4D Core.
+I also provide the evaluation on the forecasting performance of [other baselines](./other_baselines) in Voxel4D Core.
 
 ## TODO
 New Pretrained models coming soon.

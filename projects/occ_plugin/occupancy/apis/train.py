@@ -11,7 +11,7 @@ def custom_train_model(model,
                 meta=None):
     """A function wrapper for launching model training according to cfg.
 
-    Because we need different eval_hook in runner. Should be deprecated in the
+    Because I need different eval_hook in runner. Should be deprecated in the
     future.
     """
     if cfg.model.type in ['EncoderDecoder3D']:
@@ -36,7 +36,7 @@ def train_model(model,
                 meta=None):
     """A function wrapper for launching model training according to cfg.
 
-    Because we need different eval_hook in runner. Should be deprecated in the
+    Because I need different eval_hook in runner. Should be deprecated in the
     future.
     """
     if cfg.model.type in ['EncoderDecoder3D']:
