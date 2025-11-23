@@ -1,23 +1,22 @@
-# Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications
-
-[![Custom badge](https://img.shields.io/badge/Arxiv-pdf-8A2BE2?logo=arxiv)](https://arxiv.org/abs/2311.17663) ![GitHub license](https://img.shields.io/badge/License-MIT-red)
-
-> **Author:** Rohan Tennety
+# Voxel4D Core
 
 The official code and data for the benchmark with baselines for my paper: [Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications](https://arxiv.org/abs/2311.17663)
 
-<div style="text-align:center;">
-  <img src="./benchmark.png" width="49%"/> <img src="./VoxelNet.png" width="49%"/>
-</div>
+**Author:** Rohan Tennety
+
+<img src="./benchmark.png" width="49%"/> <img src="./VoxelNet.png" width="49%"/>
 
 
 
-## 📝 Getting Started
+## Citation
+If you use Voxel4D Core in an academic work, please cite my paper:
 
-- [Installation](#installation)
-- [Data Structure](#data-structure)
-- [Training and Evaluation](#training-and-evaluation)
-
+	@inproceedings{tennety2024cvpr,
+		author = {Rohan Tennety},
+		title = {{Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications}},
+		year = 2025
+	}
+ 
 ## Installation
 
 * Create a conda virtual environment and activate it
@@ -186,10 +185,7 @@ where `Xvfb` may be needed for visualization in your server.
 cd viz
 python viz_gt.py
 ```
-
-<div style="text-align:center;">
-  <img src="./viz_occupancy.png" width="100%"/>
-</div>
+<img src="./viz_occupancy.png" width="100%"/>
 
 **Visualize occupancy forecasting results**. Set `show_time_change = True` if you want to show the changing state of occupancy in time intervals. 
 
@@ -197,10 +193,7 @@ python viz_gt.py
 cd viz
 python viz_pred.py
 ```
-
-<div style="text-align:center;">
-  <img src="./viz_pred.png" width="100%"/>
-</div>
+<img src="./viz_pred.png" width="100%"/>
 
 There is still room for improvement. Camera-only 4D occupancy forecasting remains challenging, especially for predicting over longer time intervals with many moving objects. I envision this benchmark as a valuable evaluation tool, and my VoxelNet can serve as a foundational codebase for future research on 4D occupancy forecasting.
 
@@ -223,18 +216,6 @@ I also provide the evaluation on the forecasting performance of [other baselines
 New Pretrained models coming soon.
 
 
-
-## 🔖 Citation
-
-If you use Voxel4D Core in an academic work, please cite my paper:
-
-```bibtext
-@inproceedings{tennety2024cvpr,
-	author = {Rohan Tennety},
-	title = {{Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications}},
-	year = 2025
-}
-```
 
 ## Contact
 
