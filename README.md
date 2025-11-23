@@ -1,6 +1,6 @@
 # Voxel4D Core
 
-The official code and data for the benchmark with baselines for my paper: [Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications](https://arxiv.org/abs/2311.17663)
+Research Paper: Coming soon!
 
 **Author:** Rohan Tennety
 
@@ -119,26 +119,12 @@ nusc_root = './data/nuscenes/'
 
 ## Training and Evaluation
 
-I directly integrate the Voxel4D Core dataset generation pipeline into the dataloader, so you can directly run training or evaluate scripts and just wait :smirk:
+I directly integrate the Voxel4D Core dataset generation pipeline into the dataloader, so you can directly run training or evaluate scripts and just wait
 
 Optionally, you can set `only_generate_dataset=True` in the [config files](./projects/configs/baselines) to only generate the Voxel4D Core data without model training and inference.
 
-### Train VoxelNetV1.1 with 8 GPUs
 
-VoxelNetV1.1 can forecast inflated GMO and others. In this case, _vehicle_ and _human_ are considered as one unified category.
-
-For the nuScenes dataset, please run
-
-```bash
-bash run.sh ./projects/configs/baselines/VoxelNet_in_Voxel4D_Core_V1.1.py 8
-```
-
-For the Lyft dataset, please run
-
-```bash
-bash run.sh ./projects/configs/baselines/VoxelNet_in_Voxel4D_Core_V1.1_lyft.py 8
-```
-### Train VoxelNetV1.2 with 8 GPUs
+### Train VoxelNetV1.2
 
 VoxelNetV1.2 can forecast inflated GMO including _bicycle_, _bus_, _car_, _construction_, _motorcycle_, _trailer_, _truck_, _pedestrian_, and others. In this case, _vehicle_ and _human_ are divided into multiple categories for clearer evaluation on forecasting performance.
 
@@ -200,9 +186,6 @@ There is still room for improvement. Camera-only 4D occupancy forecasting remain
 
 
 ## Pretrained Models
-
-
-~~Please download my pretrained models (for epoch=20) to resume training or reproduce results.~~
 
 
 | V1.2 | [link](https://drive.google.com/file/d/18IFs8LOu0dZe22rtZ78jbrbbQrg9E7LC/view?usp=sharing)  [VoxelNet_in_Voxel4D_Core_V1.2.py](./projects/configs/baselines/VoxelNet_in_Voxel4D_Core_V1.2.py) |
