@@ -6,9 +6,6 @@ Research Paper: Coming soon!
 
 **Author:** Rohan Tennety
 
-<img src="./VoxelNet.png" width="49%"/>
-
-
 
 ## Citation
 If you use Voxel4D Core in an academic work, please cite my paper:
