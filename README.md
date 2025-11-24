@@ -1,6 +1,8 @@
 # Voxel4D Core
 
 Research Paper: Coming soon!
+# Main Project: https://github.com/rtennety/Voxel4D
+
 
 **Author:** Rohan Tennety
 
