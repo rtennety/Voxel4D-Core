@@ -6,7 +6,7 @@ Research Paper: Coming soon!
 
 **Author:** Rohan Tennety
 
-<img src="./benchmark.png" width="49%"/> <img src="./VoxelNet.png" width="49%"/>
+<img src="./VoxelNet.png" width="49%"/>
 
 
 
