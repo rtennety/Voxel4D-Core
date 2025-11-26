@@ -12,7 +12,7 @@ If you use Voxel4D Core in an academic work, please cite my paper:
 
 	@inproceedings{tennety2024cvpr,
 		author = {Rohan Tennety},
-		title = {{Voxel4D Core: Benchmark for Camera-Only 4D Occupancy Forecasting in Autonomous Driving Applications}},
+		title = {{Voxel4D Core: Benchmark for Camera-Only 4D Spatial Forecasting in Autonomous Driving Applications}},
 		year = 2025
 	}
  
